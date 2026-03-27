@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- PWA / Theme -->
+    <meta name="theme-color" content="#00FF41" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Apple PWA tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Habits ⚡" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icon-152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
+
+    <!-- Splash screens for iPhone (optional but nice) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Standard PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+
+    <meta name="description" content="Nishita's Daily Habit Tracker — Career Upgrade 2026" />
+    <title>Habits ⚡ // NISHITA</title>
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; background: #010B01; overflow-x: hidden; }
+      #root { min-height: 100%; }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #010B01; }
+      ::-webkit-scrollbar-thumb { background: #00FF41; border-radius: 2px; }
+      /* Prevent text selection on tap */
+      * { -webkit-tap-highlight-color: transparent; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered:', reg.scope))
+            .catch(err => console.warn('SW failed:', err));
+        });
+      }
+    </script>
+  </body>
+</html>
