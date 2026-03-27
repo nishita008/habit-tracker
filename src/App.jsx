@@ -354,7 +354,7 @@ export default function HabitTracker() {
       setNotifEnabled(true);
       await Promise.resolve(localStorage.setItem("notif_settings", JSON.stringify({
         interval: notifInterval, quietStart, quietEnd, enabled: true,
-      }));
+      })));
       showToast("✓ Notifications enabled!", "#00FF41");
       new Notification("⚡ Habit Tracker Active", {
         body: `Checking every ${notifInterval}h. Quiet hours: ${quietStart}–${quietEnd}. Let's go.`,
@@ -368,7 +368,7 @@ export default function HabitTracker() {
   const saveNotifSettings = async () => {
     await Promise.resolve(localStorage.setItem("notif_settings", JSON.stringify({
       interval: notifInterval, quietStart, quietEnd, enabled: notifEnabled,
-    }));
+    })));
     showToast(`✓ Checking every ${notifInterval}h · Quiet: ${quietStart}–${quietEnd}`, "#00FF41");
     setShowNotifPanel(false);
   };
@@ -378,7 +378,7 @@ export default function HabitTracker() {
     if (notifTimerRef[0]) clearInterval(notifTimerRef[0]);
     await Promise.resolve(localStorage.setItem("notif_settings", JSON.stringify({
       interval: notifInterval, quietStart, quietEnd, enabled: false,
-    }));
+    })));
     showToast("Notifications disabled", "#FF6EC7");
   };
 
